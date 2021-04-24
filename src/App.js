@@ -1,9 +1,11 @@
 import "./App.css";
-
+import Header from "./components/Header/index";
+import Homepage from "./pages/Homepage/index"
 const App = () => {
   return (
     <div className="App">
-      <h2>Thus is sampe</h2>
+      <Header />
+       <Homepage/>
     </div>
   );
 };
