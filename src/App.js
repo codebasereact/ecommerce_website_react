@@ -1,11 +1,12 @@
 import "./App.css";
 import Header from "./components/Header/index";
-import Homepage from "./pages/Homepage/index"
+import Homepage from "./pages/Homepage/index";
 const App = () => {
   return (
     <div className="App">
       <Header />
-       <Homepage/>
+      <Homepage />
+      {process.env.NODE_ENV}
     </div>
   );
 };

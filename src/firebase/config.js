@@ -1,8 +1,8 @@
 export const firebaseConfig = {
-  apiKey: "AIzaSyBupDegmbzcteoUSKtefDt5E7strUtXyX8",
-  authDomain: "ecommercewebsite-865f2.firebaseapp.com",
-  projectId: "ecommercewebsite-865f2",
-  storageBucket: "ecommercewebsite-865f2.appspot.com",
-  messagingSenderId: "739115696817",
-  appId: "1:739115696817:web:cd0a5cdfb2107d01ac9890",
+  apiKey: process.env.REACT_APP_API_KEY,
+  authDomain: process.env.REACT_APP_AUTH_DOMAIN,
+  projectId: process.env.REACT_APP_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_MESSEGING_SENDER_ID,
+  appId: process.env.REACT_APP_APP_ID,
 };
