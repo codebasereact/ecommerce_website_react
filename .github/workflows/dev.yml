@@ -28,9 +28,9 @@ jobs:
           file: ./Dockerfile
           pull: true
           push: true
-          cache-from: type=registry,ref=hustakin/ecommerce_website_react-docker-action:latest
+          cache-from: type=registry,ref=hustakin/pallavi57/ecommerce_website_react:latest
           cache-to: type=inline
-          tags: hustakin/ecommerce_website_react-docker-action:latest
+          tags: hustakin/pallavi57/ecommerce_website_react:latest
           build-args: PROFILE=nectar,ARG2=test
 
   publish-npm:
