@@ -1,50 +1,45 @@
-# This workflow will run tests using node and then publish a package to GitHub Packages when a release is created
-# For more information see: https://help.github.com/actions/language-and-framework-guides/publishing-nodejs-packages
-
 name: Firebase Deploy
 on:
   push:
     branches:
-      - dev
-
+      - development 
 jobs:
   build:
+    name: Build
     runs-on: ubuntu-latest
-    name: A job to build and push docker
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v1
-      - name: Login to DockerHub
-        uses: docker/login-action@v1
+      - name: Checkout Repo
+        uses: actions/checkout@v2.3.2
+      - name: Install Dependencies
+        run: npm install
+      - name: Run Tests
+        env:
+          CI: true
+        run: npm test
+      - name: Build
+        run: npm run build
+      - name: Archive Production Artifact
+        uses: actions/upload-artifact@v2
         with:
-          username: ${{ secrets.DOCKER_HUB_USER }}
-          password: ${{ secrets.DOCKER_HUB_PASS }
-      - name: Build and push
-        uses: docker/build-push-action@v2
-        with:
-          context: .
-          file: ./Dockerfile
-          pull: true
-          push: true
-          cache-from: type=registry,ref=hustakin/pallavi57/ecommerce_website_react:latest
-          cache-to: type=inline
-          tags: hustakin/pallavi57/ecommerce_website_react:latest
-          build-args: PROFILE=nectar,ARG2=test
-
-  publish-npm:
+          name: build
+          path: build
+  deploy:
+    name: Deploy
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - name: Checkout Repo
+        uses: actions/checkout@v2.3.2
+      - name: Download Artifact
+        uses: actions/download-artifact@v2
         with:
-          node-version: 12
-          registry-url: https://registry.npmjs.org/
-      - run: npm ci
-      - run: npm publish
+          name: build
+          path: build
+      - name: Deploy to Firebase
+        uses: w9jds/firebase-action@master
+        with:
+          args: deploy --only hosting
         env:
-          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
 
  
