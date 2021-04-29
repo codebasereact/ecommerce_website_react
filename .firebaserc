@@ -1,0 +1,8 @@
+{
+  "projects": {
+    "default": "ecommercewebsite-865f2",
+    "prod": "ecommerceappprod",
+    "testing": "ecommreactreduxtesting",
+    "dev": "ecommercewebsite-865f2"
+  }
+}

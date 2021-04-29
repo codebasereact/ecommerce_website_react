@@ -5,8 +5,11 @@ import { firebaseConfig } from "./config";
 import "firebase/auth";
 import "firebase/firestore";
 
+const app = firebase.initializeApp(firebaseConfig);
 // if (process.env.REACT_APP_DEPLOY_ENV='production') {
 //     firebase.initializeApp(productionConfig)
 //   } else {
 //     firebase.initializeApp(developmentConfig)
 //   }
+
+export default app;
