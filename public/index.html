@@ -31,7 +31,8 @@
     <script>
       document.addEventListener('DOMContentLoaded', (event)=> {
         const loadEl = document.querySelector('#load');
-       
+        console.log('DOM fully loaded and parsed');
+        console.log(loadEl);
         // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
         // // The Firebase SDK is initialized and available here!
         //
@@ -62,7 +63,7 @@
           ].filter(feature => typeof app[feature] === 'function');
           loadEl.textContent = `Firebase SDK loaded with ${features.join(', ')}`;
         } catch (e) {
-          console.error(e);
+          console.log("this is the error", e);
           loadEl.textContent = 'Error loading the Firebase SDK, check the console.';
         }
       });
