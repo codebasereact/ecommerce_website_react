@@ -7,10 +7,7 @@ const App = () => {
       <Header />
       <Homepage />
       <div className="variable">
-        <p>
-          Current Logged on Domain :
-          <spam>{process.env.REACT_APP_AUTH_DOMAIN}</spam>
-        </p>
+        <p>Current Logged on Domain :</p>
         <p>
           Deployable On : <spam>{process.env.REACT_APP_DEPLOY_ENV}</spam>
         </p>
