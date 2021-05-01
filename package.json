@@ -6,7 +6,7 @@
     "@testing-library/jest-dom": "^5.12.0",
     "@testing-library/react": "^11.2.6",
     "@testing-library/user-event": "^12.8.3",
-    "firebase": "^8.4.2",
+    "firebase": "^8.4.3",
     "firebase-tools": "^9.10.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
@@ -19,9 +19,9 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "build:dev":"env-cmd -f .env.default npm run build && firebase deploy -P dev",
-    "build:prod":"env-cmd -f .env.production npm run build && firebase deploy -P prod",
-    "build:test":"env-cmd -f .env.testing npm run build && firebase deploy -P testing"
+    "build:dev": "env-cmd -f .env.default npm run build && firebase deploy -P dev",
+    "build:prod": "env-cmd -f .env.production npm run build && firebase deploy -P prod",
+    "build:test": "env-cmd -f .env.testing npm run build && firebase deploy -P testing"
   },
   "eslintConfig": {
     "extends": [
@@ -43,5 +43,17 @@
   },
   "devDependencies": {
     "env-cmd": "^10.1.0"
-  }
+  },
+  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/codebasereact/ecommerce_website_react.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/codebasereact/ecommerce_website_react/issues"
+  },
+  "homepage": "https://github.com/codebasereact/ecommerce_website_react#readme"
 }
